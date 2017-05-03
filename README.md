@@ -320,3 +320,37 @@ console.log(right.name); // "something else"
 ```
 This class can not be instantiated from outside this class because the constructor is private. We can access the getInstance method because it is static but cannot create an instance.
 
+## Namespaces & Modules
+
+Namespaces and modules help us to split up our code into more separate, smaller, more manageable files.
+
+### Namespaces
+
+Handy for making good use of the global namespace which on big projects can get pretty populated quite quickly.
+```js
+namespace MyMath {
+    const PI = 3.14;
+
+    export function calcCircumference(diameter: number): number {
+        return diameter * PI;
+    }
+
+    export function calcRectangleArea(width: number, height: number): number {
+        return width * height;
+    }
+}
+
+const PI = 2.99;
+
+console.log(MyMath.calculateCircumference(3)) // 9.42
+console.log(MyMath.calculateRectangleArea(10, 20)) // 200
+console.log(MyMath.PI) // ERROR: Because PI is not an exported property of the MyMath namespace
+console.log(PI) // 2.99 NO ERROR Because only defined once in global namespace
+```
+Note: With bigger files/namespaces we may wish to break it up over multiple files and using import statements. Another way to combine multiple files on compilation is by seeting the compiler through command line:
+
+'tsc --outFile <name of bundled file> <files to be bundled in particular order'
+
+Example:
+
+'tsc --outFile app.js TS/types.ts TS/es6.ts TS/classes.ts' and then we just add <script src="app.js"></script> to our index.html

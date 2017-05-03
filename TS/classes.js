@@ -32,33 +32,26 @@ var BaseObject = (function () {
 var rectangle = new BaseObject(5, 2);
 console.log(rectangle.calcSize()); // 10
 // Exercise 3 - Make sure to compile to ES5 (set the target in tsconfig.json)
-var Person = (function () {
-    function Person() {
-        this._firstName = "Jock";
-    }
-    Object.defineProperty(Person.prototype, "firstName", {
-        get: function () {
-            return this._firstName;
-        },
-        set: function (value) {
-            if (value.length > 3) {
-                this._firstName = value;
-            }
-            else {
-                this._firstName = "Default";
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ;
-    ;
-    return Person;
-}());
-;
-var person = new Person();
-console.log(person.firstName); // Jock
-person.firstName = "Ma";
-console.log(person.firstName); // Default
-person.firstName = "Maximilian";
-console.log(person.firstName); // Maximilian
+// class Person {
+//     private _firstName: string = "Jock";
+//
+//     get firstName() {
+//         return this._firstName
+//     };
+//
+//     set firstName(value: string) {
+//         if (value.length > 3) {
+//             this._firstName = value;
+//         }
+//         else {
+//             this._firstName = "Default";
+//         }
+//     };
+// };
+//
+// const person = new Person();
+// console.log(person.firstName); // Jock
+// person.firstName = "Ma";
+// console.log(person.firstName); // Default
+// person.firstName = "Maximilian";
+// console.log(person.firstName); // Maximilian 
