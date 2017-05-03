@@ -240,3 +240,24 @@ console.log(plant.species); // 'Species is Default'
 plant.species = "Sunflower" //will pass and change the value of _species
 console.log(plant.species); // 'Species is Sunflower'
 ```
+
+### Static Properties and Methods
+```js
+class Helpers {
+    PI: number = 3.14;
+
+    static myPI: number = 3.14;
+
+    static calcCircumference(diameter: number): number {
+        return this.myPI * diameter;
+    }
+}
+
+console.log(2 * Helpers.PI); // Will not work because Helpers is a class and not an instance of that class.
+
+// By adding static methods and properties you can directly access them through the class.
+
+console.log(2 * Helpers.myPI); // 6.28
+console.log(Helpers.calcCircumference(8)); // 25.12
+```
+
