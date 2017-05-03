@@ -129,3 +129,10 @@ const userData = {userName: "Jock", age: 31};
 const {userName: myName, age: myAge} = userData
 console.log(myName, myAge)
 ```
+
+### Template Literals
+```js
+function logOut (name: string): void {
+    console.log(`Hello ${name}!`);
+}
+```
