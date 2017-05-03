@@ -136,3 +136,31 @@ function logOut (name: string): void {
     console.log(`Hello ${name}!`);
 }
 ```
+
+## TS Classes
+
+Classes allow us to create a blueprint for objects so later on we can create objects based on classes and it will have those properties and methods.
+
+```js
+class Person {
+    name: string;
+    public age: number;
+    private height: number;
+    protected height: number;
+
+    constructor(name: string, public username: string) {
+        this.name = name;
+    }
+}
+
+const person = new Person('Jock', 'jockdalby');
+
+console.log(person.username) // log 'jockdalby'
+```
+
+- public properties or methods are accessible from outside the class. This is the default setting.
+- private properties or methods are only accessible from inside the class.
+- protected properties are only accessible from classes which inherit from this class (i.e. child classes).
+- These are TS features that ES6 does not offer.
+
+I the above example we declare the 'name' property and then in the constructor we assign the name parameter to it. The way in which the 'username' parameter is defined in the constructor achieves all this in one step.
