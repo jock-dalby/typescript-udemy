@@ -182,3 +182,18 @@ I the above example we declare the 'name' property and then in the constructor w
 The printAge() method allows us to access the age value but because it is protected it means the value cannot be changed.
 
 The setType() method can update the type property because it is doing so from inside the class.
+
+### Inheritance
+```js
+class Jock extends Person {
+   name = "Jock"
+}
+
+const jock = new Jock("Anna", "jock")
+console.log(jock) // logs {name: "Jock", username: "Jock"}
+// Note we still need to use the Person constructor but because we overwrote the name property it will still be 'Jock', not 'Anna'.
+```
+
+Using the above syntax, the properties and methods from the Person class will now available the Jock class. Any properties or methods defined inside the Jock class will either be added to the existing Person properties and methods or overwrite them.
+
+
