@@ -105,3 +105,12 @@ function makeArray(name: string, ...args: number) {
 console.log(makeArray(1, 3, 4, 6, 8, 9, 0));
 // Will log [1, 3, 4, 6, 8, 9, 0];
 ```
+
+### Destructuring
+```js
+const myHobbies = ["Cooking", "Sports"];
+const [hobby1, hobby2] = myHobbies;
+console.log(hobby1, hobby2)
+```
+
+The destructuring example above will define two new constants and assign the first tow values in the myHobbies array to them.
