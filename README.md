@@ -144,18 +144,32 @@ Classes allow us to create a blueprint for objects so later on we can create obj
 ```js
 class Person {
     name: string;
-    public age: number;
-    private height: number;
-    protected height: number;
+    public weight: number;
+    private type: number;
+    protected age: number = 31;
 
     constructor(name: string, public username: string) {
         this.name = name;
+    }
+
+    printAge() {
+        console.log(this.age);
+        this.setType("Old guy");
+    }
+
+    setType(type: string) {
+        this.type = type;
+        console.log(this.type);
     }
 }
 
 const person = new Person('Jock', 'jockdalby');
 
 console.log(person.username) // log 'jockdalby'
+
+person.printAge() // log 31
+
+person.setType('Cool guy'); // Won't work because private
 ```
 
 - public properties or methods are accessible from outside the class. This is the default setting.
@@ -164,3 +178,7 @@ console.log(person.username) // log 'jockdalby'
 - These are TS features that ES6 does not offer.
 
 I the above example we declare the 'name' property and then in the constructor we assign the name parameter to it. The way in which the 'username' parameter is defined in the constructor achieves all this in one step.
+
+The printAge() method allows us to access the age value but because it is protected it means the value cannot be changed.
+
+The setType() method can update the type property because it is doing so from inside the class.
