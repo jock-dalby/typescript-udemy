@@ -326,7 +326,7 @@ Namespaces and modules help us to split up our code into more separate, smaller,
 
 ### Namespaces
 
-Handy for making good use of the global namespace which on big projects can get pretty populated quite quickly.
+Handy for making good use of the global namespace which on big projects can get pretty populated quite quickly. As you can see it is possible to have nested namespaces.
 ```js
 namespace MyMath {
     const PI = 3.14;
@@ -338,12 +338,18 @@ namespace MyMath {
     export function calcRectangleArea(width: number, height: number): number {
         return width * height;
     }
+
+    export namespace Rectangle {
+        export function calcRectangleArea(width: number, height: number): number {
+            return width * height;
+        }
+    }
 }
 
 const PI = 2.99;
 
 console.log(MyMath.calculateCircumference(3)) // 9.42
-console.log(MyMath.calculateRectangleArea(10, 20)) // 200
+console.log(MyMath.Rectangle.calculateRectangleArea(10, 20)) // 200
 console.log(MyMath.PI) // ERROR: Because PI is not an exported property of the MyMath namespace
 console.log(PI) // 2.99 NO ERROR Because only defined once in global namespace
 ```
@@ -369,3 +375,7 @@ Example:
 
 'tsc --outFile app.js TS/types.ts TS/es6.ts TS/classes.ts' and then just add <script src="app.js"></script> to our index.html
 
+***NOTE***
+One disadvantage of namespaces is they are not very declarative about what is being imported and used where and this is why it is more common to use separate files to modularise projects. Namespaces are ok for smaller projects but for medium of large projects it is better to use modules
+
+### Modules
