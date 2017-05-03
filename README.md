@@ -72,3 +72,36 @@ or even better, this:
 ```js
 const myFunction = (name: string): string => "Hello" + name;
 ```
+
+### Default parameters
+
+```js
+const countdown = (start: number = 10): void => {
+    while(start > 0) {
+        start--;
+    }
+    console.log("Done", start);
+}
+
+countdown()
+```
+
+### Spread Operator
+
+```js
+const numbers = [1, 2, 43 , 45, 7, 8, 9, 93];
+const allNumbers = [94, 5, 7, ...numbers];
+
+// allNumbers = [94, 5, 7, 1, 2, 43 , 45, 7, 8, 9, 93]
+```
+
+### Rest Operator
+
+```js
+function makeArray(name: string, ...args: number) {
+    return args
+}
+
+console.log(makeArray(1, 3, 4, 6, 8, 9, 0));
+// Will log [1, 3, 4, 6, 8, 9, 0];
+```
