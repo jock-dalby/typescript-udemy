@@ -261,3 +261,37 @@ console.log(2 * Helpers.myPI); // 6.28
 console.log(Helpers.calcCircumference(8)); // 25.12
 ```
 
+### Abstract Classes
+
+Abstract Classes cannot be instantiated directly and must be extended. Abstract methods once the class is extended we need to implement a method called 'changeName' and the logic needs to be written in the child class.
+```js
+abstract class Project {
+    projectName: string = "Default";
+    budget: number = 1000;
+
+    abstract changeName(name: string): void;
+
+    calcBudget() {
+        return this.budget * 2;
+    }
+}
+
+class ITProject extends Project {
+    // will get an error if do not implement inherited abstract method 'changeName'.
+    // When implementing the method you must use the same function type - (name: string): void - defined in the abstract class.
+
+    changeName(name: string): void {
+        this.projectName = name;
+    }
+}
+
+let newProject = new ITProject();
+console.log(newProject.projectName) // "Default"
+newProject.changeName('Super IT Project');
+console.log(newProject.projectName) // "Super IT Project"
+```
+
+### Private Constructors and Singletons (TS 2.0)
+
+
+
