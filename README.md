@@ -395,7 +395,6 @@ import {PI, calcCircumference } from './myMath';
 console.log(PI); // 3.14
 console.log(calcCircumference(2)); // 6.28
 ```
-
 or
 
 ```js
@@ -414,3 +413,71 @@ Because import statements are ES6 and we are compiling to ES5 so to get them to 
 Namespaces allow us to organise our application using JS objects, can be split over multiple files and do not require a Module Loader. However dependencies are difficult to manage in bigger Applications as import statements are not strictly declarative.
 
 Modules allow us to organise our applications using real modules with their own scope and files and explicit dependency declarations. However loading them does require a Module Loader.
+
+## Interfaces
+
+An interface basically is a contract signed by an Object which says I guarantee you that I have a certain property/method setup.
+```js
+interface Person {
+    name: string,
+    age: number
+}
+
+function greetAgain(person: Person) {
+    console.log(`Hello ${person.name}`)
+}
+
+const person = {
+    name: "Jock",
+    age: 31
+};
+
+const person2 = {
+    firstName: "Nele",
+    age: 32
+};
+
+greetAgain(person); // "Hello Jock"
+greetAgain(person2); // Error {firstName: "Nele", age: 32 } is not assignable to { name: string, age: number }
+```
+
+IMPORTANT TO KNOW: When calling a method and passing it an object literal, it gets checked more strictly than if you assigned it to a constant.
+
+Example
+```js
+interface Person {
+    name: string
+}
+
+function greetAgain(person: Person) {
+    console.log(`Hello ${person.name}`)
+}
+
+const person = {
+    name: "Jock",
+    age: 31
+};
+
+greetAgain(person); // No error
+greetAgain({name: "Jock", age: 31 }) // Error {firstName: "Jock", age: 31 } is not assignable to { name: string }
+```
+To prevent this from happening we can add age as an optional argument in our interface:
+```js
+interface Person {
+    name: string,
+    age?: number
+}
+```
+If you are unsure of property names or types we can define the interface using some special TS notation.
+```js
+interface Person {
+    name: string,
+    age?: number,
+    [propName: string]: number
+}
+```
+
+This tells the interface we can expect a property of type number but we are not sure of the name of the property (except that it is a string).
+
+
+
