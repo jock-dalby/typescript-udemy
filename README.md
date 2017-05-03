@@ -196,4 +196,17 @@ console.log(jock) // logs {name: "Jock", username: "Jock"}
 
 Using the above syntax, the properties and methods from the Person class will now available the Jock class. Any properties or methods defined inside the Jock class will either be added to the existing Person properties and methods or overwrite them.
 
+We can overwrite the person constructor by defining our ow constuctor in Jock class. When extending a class and defining a consturctor you always have to call super() first, which calls the constructor of the parent class
 
+```js
+class Jock extends Person {
+    name = "Jock"
+
+    constructor(username: string) {
+        super("Jock", username);
+    }
+}
+
+const jock = new Jock("jock")
+console.log(jock) // logs {name: "Jock", username: "Jock"}
+```
