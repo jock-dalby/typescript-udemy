@@ -347,10 +347,25 @@ console.log(MyMath.calculateRectangleArea(10, 20)) // 200
 console.log(MyMath.PI) // ERROR: Because PI is not an exported property of the MyMath namespace
 console.log(PI) // 2.99 NO ERROR Because only defined once in global namespace
 ```
-Note: With bigger files/namespaces we may wish to break it up over multiple files and using import statements. Another way to combine multiple files on compilation is by seeting the compiler through command line:
+
+### Importing namespaces
+
+With bigger files/namespaces we may wish to break it up over multiple files and using import statements, there are two ways to do this.
+
+1. Typescript has it's own import syntax for namespaces, add the below syntax to the file you wish to import
+```js
+// TS/type.ts. Keep /// in import statments
+
+/// <reference path="es6.ts"/>
+/// <reference path="classes.ts"/>
+```
+Then in the command line run 'tsc <input filename> --outFile <output filename>' e.g. 'tsc TS/types.ts --outFile app.js' and then just add <script src="app.js"></script> to our index.html
+
+2. Another way to combine multiple files on compilation is by setting the compiler through command line:
 
 'tsc --outFile <name of bundled file> <files to be bundled in particular order'
 
 Example:
 
-'tsc --outFile app.js TS/types.ts TS/es6.ts TS/classes.ts' and then we just add <script src="app.js"></script> to our index.html
+'tsc --outFile app.js TS/types.ts TS/es6.ts TS/classes.ts' and then just add <script src="app.js"></script> to our index.html
+
