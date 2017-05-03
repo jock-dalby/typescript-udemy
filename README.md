@@ -212,3 +212,31 @@ const jock = new Jock("jock")
 console.log(jock) // logs {name: "Jock", username: "Jock", age: 99}
 ```
 Notice we can access the age property of the person class because it is protected but Jock is a child class of the Person class. NOTE: We cannot access the type property because it is a private property AND SO ONLY AVAILABLE FROM WITHIN THAT CLASS.
+
+
+### Getters & Setters
+```js
+class Plant {
+    private _species: string = "Default";
+
+    get species() {
+        return `Species is ${this._species}`;
+    }
+
+    set species(value: string) {
+        if (value.length > 3) {
+            this._species = value;
+        } else {
+            this._species = "Default";
+        }
+    }
+
+}
+
+let plant = new Plant();
+console.log(plant.species); // 'Species is Default'
+plant.species = "AB" // will fail because only 2 characters long
+console.log(plant.species); // 'Species is Default'
+plant.species = "Sunflower" //will pass and change the value of _species
+console.log(plant.species); // 'Species is Sunflower'
+```
