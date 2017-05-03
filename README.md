@@ -375,7 +375,42 @@ Example:
 
 'tsc --outFile app.js TS/types.ts TS/es6.ts TS/classes.ts' and then just add <script src="app.js"></script> to our index.html
 
-***NOTE***
+***NOTE***:
 One disadvantage of namespaces is they are not very declarative about what is being imported and used where and this is why it is more common to use separate files to modularise projects. Namespaces are ok for smaller projects but for medium of large projects it is better to use modules
 
 ### Modules
+```js
+// myMath.js
+
+export const PI = 3.14;
+
+export function calcCircumference(diameter: number): number {
+    return diameter * PI;
+}
+
+// app.js
+
+import {PI, calcCircumference } from './myMath';
+
+console.log(PI); // 3.14
+console.log(calcCircumference(2)); // 6.28
+```
+
+or
+
+```js
+// app.js
+
+import * as MyMath from './myMath';
+
+console.log(MyMath.PI); // 3.14
+console.log(MyMath.calcCircumference(2)); // 6.28
+```
+
+Because import statements are ES6 and we are compiling to ES5 so to get them to work we must add a module loader (e.g. SystemJS) which adds the logic the browser needs to work with these ES6 commands. See systemJS docs.
+
+### Namespaces vs Modules
+
+Namespaces allow us to organise our application using JS objects, can be split over multiple files and do not require a Module Loader. However dependencies are difficult to manage in bigger Applications as import statements are not strictly declarative.
+
+Modules allow us to organise our applications using real modules with their own scope and files and explicit dependency declarations. However loading them does require a Module Loader.
