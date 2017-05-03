@@ -114,3 +114,18 @@ console.log(hobby1, hobby2)
 ```
 
 The destructuring example above will define two new constants and assign the first tow values in the myHobbies array to them.
+
+### Destructuring Objects
+```js
+const userData = {userName: "Jock", age: 31};
+const {userName, age} = userData
+console.log(userName, age)
+```
+
+Important: When destructuring objects it is important your variable name matches the key names for the values you are trying to assign. You can assign new names in the definition as below.
+
+```js
+const userData = {userName: "Jock", age: 31};
+const {userName: myName, age: myAge} = userData
+console.log(myName, myAge)
+```
