@@ -61,8 +61,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="311" column="183" lean-forward="false" selection-start-line="311" selection-start-column="183" selection-end-line="311" selection-end-column="183" />
+            <state relative-caret-position="194">
+              <caret line="309" column="9" lean-forward="true" selection-start-line="309" selection-start-column="9" selection-end-line="309" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -287,12 +287,12 @@
       <updated>1493766635764</updated>
       <workItem from="1493766637630" duration="790000" />
       <workItem from="1493773795417" duration="9736000" />
-      <workItem from="1493843090393" duration="2080000" />
+      <workItem from="1493843090393" duration="2406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12606000" />
+    <option name="totallyTimeSpent" value="12932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -497,8 +497,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="311" column="183" lean-forward="false" selection-start-line="311" selection-start-column="183" selection-end-line="311" selection-end-column="183" />
+        <state relative-caret-position="194">
+          <caret line="309" column="9" lean-forward="true" selection-start-line="309" selection-start-column="9" selection-end-line="309" selection-end-column="9" />
           <folding />
         </state>
       </provider>

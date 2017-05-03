@@ -215,6 +215,9 @@ Notice we can access the age property of the person class because it is protecte
 
 
 ### Getters & Setters
+
+Note: If a getter is defined but a setter is not then the property will become readonly. Another way to create readonly properties would be to add public readonly before definition.
+
 ```js
 class Plant {
     private _species: string = "Default";
@@ -295,8 +298,11 @@ console.log(newProject.projectName) // "Super IT Project"
 ```js
 class OnlyOne {
     private static instance: OnlyOne;
+    public readonly age: number = 31
 
-    private constructor(public name: string) {}
+    private constructor(
+        public name: string
+        ) {}
 
     static getInstance() {
         if (!OnlyOne.instance) {
@@ -308,6 +314,9 @@ class OnlyOne {
 
 let wrong = new OnlyOne('The Only One');
 let right = OnlyOne.instance;
+right.name = "something else"; // name is a public property
+right.age = 32; // age is a readonly property
+console.log(right.name); // "something else"
 ```
 This class can not be instantiated from outside this class because the constructor is private. We can access the getInstance method because it is static but cannot create an instance.
 
