@@ -44,13 +44,13 @@ Not necessarily all ES6 Features are supported by TypeScript, but quite a lot of
 
 The following Compatibly Chart helps you find out if you're favorite Feature is supported: http://kangax.github.io/compat-table/es6/
 
-#### let and const
+### let and const
 
 - The var keyword creates a global scope variable.
 - The let keyword defines a block scope variable. Preferred way and better than var as only has advantages and no disadvantages.
 - The const keyword defines a block scope variable that cannot be re-assigned. We should use the constant keyword when we know a value is not going to change. This makes it clear in our code and also gives us compilation support that will warn us if we try to change it by accident.
 
-#### Arrow functions
+### Arrow functions
 
 Change this:
 
