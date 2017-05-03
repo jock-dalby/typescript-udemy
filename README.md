@@ -441,6 +441,8 @@ greetAgain(person); // "Hello Jock"
 greetAgain(person2); // Error {firstName: "Nele", age: 32 } is not assignable to { name: string, age: number }
 ```
 
+### Interface properties
+
 IMPORTANT TO KNOW: When calling a method and passing it an object literal, it gets checked more strictly than if you assigned it to a constant.
 
 Example
@@ -479,5 +481,16 @@ interface Person {
 
 This tells the interface we can expect a property of type number but we are not sure of the name of the property (except that it is a string).
 
+### Interface methods
+```js
+interface Person {
+    greet(lastName: string):void;
+}
 
+const person: Person = {
+    greet(lastName: string) {
+        console.log(`Hello Mr. ${lastName}`);
+    }
+}
 
+```
