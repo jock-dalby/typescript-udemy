@@ -292,6 +292,22 @@ console.log(newProject.projectName) // "Super IT Project"
 ```
 
 ### Private Constructors and Singletons (TS 2.0)
+```js
+class OnlyOne {
+    private static instance: OnlyOne;
 
+    private constructor(public name: string) {}
 
+    static getInstance() {
+        if (!OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The Only One');
+        }
+        return OnlyOne.instance;
+    }
+}
+
+let wrong = new OnlyOne('The Only One');
+let right = OnlyOne.instance;
+```
+This class can not be instantiated from outside this class because the constructor is private. We can access the getInstance method because it is static but cannot create an instance.
 
