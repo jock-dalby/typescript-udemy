@@ -19,3 +19,14 @@ The Typescript compiler warns you about errors about your code but continues to 
      ]
  }
  ```
+
+ This is a default file is created when we run 'tsc --init' in the command line. The base config is:
+
+ 1. "exclude" => Do not compile anything in the node_modules folder.
+ 2. "module" => We want to resolve our modules to be commonjs format.
+ 3. "target" => The target version to which we want to compile is ES5. ES5 is default because it runs in pretty much all browsers.
+ 4. "noImplicitAny" => Allows TS to implicitly define the 'any' type when no type is defined. Setting this to true may alert you to mistakes and help you to write better, more robust code.
+ 5. "sourceMap" => Do not create .js.map file upon compilation. Setting this to true will add a .ts file, which can be viewed through the source tab in dev tools. This can be helpful for debugging code as it allows you to put breakpoints directly into your TS code.
+
+ To stop TS compiling code if it has errors we need to add "noEmitOnError": true; to the compilerOptions object. If you delete the .js file created from previous compilations, a new one will not be created until we run 'tsc' in the command line and have no errors returned.
+
