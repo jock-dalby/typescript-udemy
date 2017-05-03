@@ -174,7 +174,7 @@ person.setType('Cool guy'); // Won't work because private
 
 - public properties or methods are accessible from outside the class. This is the default setting.
 - private properties or methods are only accessible from inside the class.
-- protected properties are only accessible from classes which inherit from this class (i.e. child classes).
+- protected properties are only accessible from inside the class and classes which inherit from this class (i.e. child classes).
 - These are TS features that ES6 does not offer.
 
 I the above example we declare the 'name' property and then in the constructor we assign the name parameter to it. The way in which the 'username' parameter is defined in the constructor achieves all this in one step.
@@ -204,9 +204,11 @@ class Jock extends Person {
 
     constructor(username: string) {
         super("Jock", username);
+        this.age = 99;
     }
 }
 
 const jock = new Jock("jock")
-console.log(jock) // logs {name: "Jock", username: "Jock"}
+console.log(jock) // logs {name: "Jock", username: "Jock", age: 99}
 ```
+Notice we can access the age property of the person class because it is protected but Jock is a child class of the Person class. NOTE: We cannot access the type property because it is a private property AND SO ONLY AVAILABLE FROM WITHIN THAT CLASS.
