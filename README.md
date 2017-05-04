@@ -470,7 +470,7 @@ interface Person {
     age?: number
 }
 ```
-If you are unsure of property names or types we can define the interface using some special TS notation.
+If you are unsure of property names or types we can define the interface using flexible properties.
 ```js
 interface Person {
     name: string,
@@ -547,5 +547,5 @@ const oldPerson : AgedPerson = {
     }
 }
 
-console.log(oldPerson) // oldPerson will be successfully create because it has all the props and method of AgedPerson (and NamedPerson because extended) and the optional property and undefined property do not NEED to be present.
+console.log(oldPerson) // oldPerson will be successfully created because it has all the props and methods of AgedPerson (and NamedPerson because AgedPerson extended that interface) and the optional properties and flexible properties ([propName: string]: string;) do not NEED to be present.
 ```
