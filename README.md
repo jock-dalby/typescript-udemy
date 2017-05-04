@@ -630,7 +630,7 @@ In the above declaration, we are creating a new constant and assigning a type to
 class SimpleMath<T extends number | string> {
     baseValue: T;
     multiplyValue: T;
-    calculate(): T {
+    calculate(): number {
         return +this.baseValue * +this.multiplyValue;
     }
 }
@@ -648,4 +648,40 @@ simpleMath2.multiplyValue = "20";
 console.log(simpleMath2.calculate()); // 200
 
 const simpleMath2 = new SimpleMath<boolean>(); // ERROR: Type 'boolean' does not satisfy the constraint 'number | string'
+```
+
+In the above example because the SimpleMath class has all properties of type T we cannot pass a string and a number. Do define a generic class which accepts mixed types we must use the below syntax.
+
+```js
+class SimpleMath<T extends number | string, U extends number | string> {
+    baseValue: T;
+    multiplyValue: U;
+    calculate(): number {
+        return +this.baseValue * +this.multiplyValue;
+    }
+}
+
+const simpleMath = new SimpleMath<string, number>();
+simpleMath.baseValue = "10";
+simpleMath.multiplyValue = 20;
+
+console.log(simpleMath.calculate()); // 200
+```
+
+Above both T and U must be a number or a string. Below U must be a number or a string and T must be the same type as U
+
+```js
+class SimpleMath<T extends U, U extends number | string> {
+    baseValue: T;
+    multiplyValue: U;
+    calculate(): number {
+        return +this.baseValue * +this.multiplyValue;
+    }
+}
+
+const simpleMath = new SimpleMath<number, number>();
+simpleMath.baseValue = 10;
+simpleMath.multiplyValue = 20;
+
+console.log(simpleMath.calculate()); // 200
 ```
