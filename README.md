@@ -624,3 +624,28 @@ const echo2: <T>(data: T) => T = echo;
 ```
 
 In the above declaration, we are creating a new constant and assigning a type to it (<T>(data: T) => T). We can identify this because everything after the colon but before the equals sign is a type assignment. This constant will be a generic function that will take one argument of type the user specifies and return something of the same type. We then assign the constant to the echo function which fits the type description.
+
+### Generic Classes
+```js
+class SimpleMath<T extends number | string> {
+    baseValue: T;
+    multiplyValue: T;
+    calculate(): T {
+        return +this.baseValue * +this.multiplyValue;
+    }
+}
+
+const simpleMath = new SimpleMath<number>();
+simpleMath.baseValue = 10;
+simpleMath.multiplyValue = 20;
+
+console.log(simpleMath.calculate()); // 200
+
+const simpleMath2 = new SimpleMath<string>();
+simpleMath2.baseValue = "10";
+simpleMath2.multiplyValue = "20";
+
+console.log(simpleMath2.calculate()); // 200
+
+const simpleMath2 = new SimpleMath<boolean>(); // ERROR: Type 'boolean' does not satisfy the constraint 'number | string'
+```

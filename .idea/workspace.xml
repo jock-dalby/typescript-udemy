@@ -61,8 +61,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="625" column="15" lean-forward="true" selection-start-line="625" selection-start-column="15" selection-end-line="625" selection-end-column="15" />
+            <state relative-caret-position="367">
+              <caret line="647" column="44" lean-forward="true" selection-start-line="647" selection-start-column="44" selection-end-line="647" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -296,12 +296,12 @@
       <updated>1493766635764</updated>
       <workItem from="1493766637630" duration="790000" />
       <workItem from="1493773795417" duration="9736000" />
-      <workItem from="1493843090393" duration="12930000" />
+      <workItem from="1493843090393" duration="13725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23456000" />
+    <option name="totallyTimeSpent" value="24251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -333,7 +333,6 @@
       <list>
         <option value="$PROJECT_DIR$/TS/es6.js" />
         <option value="$PROJECT_DIR$/TS/classes.js" />
-        <option value="$PROJECT_DIR$/TS/interfaces.js" />
       </list>
     </option>
   </component>
@@ -525,8 +524,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="625" column="15" lean-forward="true" selection-start-line="625" selection-start-column="15" selection-end-line="625" selection-end-column="15" />
+        <state relative-caret-position="367">
+          <caret line="647" column="44" lean-forward="true" selection-start-line="647" selection-start-column="44" selection-end-line="647" selection-end-column="44" />
           <folding />
         </state>
       </provider>
