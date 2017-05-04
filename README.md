@@ -494,3 +494,35 @@ const person: Person = {
 }
 
 ```
+
+### Using interface with classes
+
+It is also possible to use interfaces with classes, for example
+```js
+interface Car {
+    make: string,
+    model: number,
+    colour?: string
+}
+
+class Hatchbacks implements Car {
+    // Now Hatchbacks would HAVE to have a make and model property plus and optional colour property. Essentially, it has to match the type in the same way other declarations do.
+}
+```
+
+### Interfaces for function types
+```js
+interface DoubleValueFunc {
+    (num1: number, num2: number): number;
+}
+
+const myDoubleFunction: DoubleValueFunc = function (
+    value1: number, value2: number) {
+        return (value1 * value2);
+}
+
+console.log(myDoubleFunction(10, 20)); // 60
+```
+
+### Interface Inheritance
+
