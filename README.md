@@ -525,4 +525,27 @@ console.log(myDoubleFunction(10, 20)); // 60
 ```
 
 ### Interface Inheritance
+```js
 
+interface NamedPerson {
+    firstName: string,
+    lastName?: string,
+    [propName: string]: string;
+    greet(lastName:string):void;
+}
+
+
+interface AgedPerson extends NamedPerson {
+    age: number;
+}
+
+const oldPerson : AgedPerson = {
+    age: 27,
+    firstName: 'Jock',
+    greet(lastName: string) {
+        console.log(`Hello ${string}`);
+    }
+}
+
+console.log(oldPerson) // oldPerson will be successfully create because it has all the props and method of AgedPerson (and NamedPerson because extended) and the optional property and undefined property do not NEED to be present.
+```
