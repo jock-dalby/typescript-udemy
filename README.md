@@ -685,3 +685,43 @@ simpleMath.multiplyValue = 20;
 
 console.log(simpleMath.calculate()); // 200
 ```
+
+## Decorators
+
+Decorators are functions which can be attached to classes, methods and properties and then work with them or transform them. Decorators basically give the chance to extend a class and add extra functionality. Decorators attached to a class will automatically get one argument from TS, constructorFn. There is nothing special about a function that makes it a decorator, it only becomes a decorator when it is appended using the @ symbol.
+
+NOTE: To use decorators without compilation errors you must add "experimentalDecorators": true; to compilerOptions in tsconfig.json.
+
+Example 1:
+
+```js
+function logged(constructorFn: Function) {
+    console.log(constructorFn)
+}
+
+@logged
+class Person {
+    constructor(console.log("Hello world"))
+}
+
+// run tsc and Person constructor function will be printed to the console.
+```
+
+### Decorator factory
+
+```js
+function logged(constructorFn: Function) {
+    console.log(constructorFn)
+}
+
+function logging(value: boolean) {
+    return value ? logged : null
+}
+
+@logging(true) // Attach the result of this function for execution. If true attach logged, if false, attach null.
+class Bus {
+
+}
+
+// Only attach the logged function to the Bus class if logging decorator (factory) evaluates to true.
+```
