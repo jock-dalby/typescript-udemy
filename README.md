@@ -725,3 +725,23 @@ class Bus {
 
 // Only attach the logged function to the Bus class if logging decorator (factory) evaluates to true.
 ```
+
+### Creating useful decorators
+```js
+function printable(constructorFn: Function) {
+    constructorFn.prototype.print = function() {
+        console.log(this);
+    }
+}
+
+@printable
+class Plant {
+    name = "Green Plant";
+}
+
+const plant = new Plant();
+(<any>plant).print();
+```
+When each instance of a class which has printable decorator is instantiated, it's contents are printed to the console.
+
+
