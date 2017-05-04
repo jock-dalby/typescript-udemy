@@ -554,3 +554,73 @@ console.log(oldPerson) // oldPerson will be successfully created because it has 
 
 Generics are a powerful tool for writing dynamic and flexible code. They use the power of TS (and the fact it needs to know what type a certain property/variable has) whilst giving a lot of flexibility in writing certain functions.
 
+### Simple Generic
+```js
+function echo(data: any) {
+    return data;
+}
+
+console.log(echo("Jock")); // Jock
+console.log(echo("Jock").length); // 4
+console.log(echo(31)); // 31
+console.log(echo(31).length); // undefined
+console.log(echo({name: "Jock", age: 31})); // {name: "Jock", age: 31}
+console.log(echo({name: "Jock", age: 31}).length); // undefined
+```
+
+### Better Generic
+```js
+function betterEcho<T>(data: T) {
+    return data;
+}
+
+console.log(betterEcho("Jock")); // Jock
+console.log(betterEcho("Jock").length); // 4
+console.log(betterEcho<string>("Jock")); // Jock
+console.log(betterEcho(31)); // 31
+console.log(betterEcho<string>(31)); // WILL RAISE A COMPILATION ERROR
+console.log(betterEcho(31).length); // WILL RAISE A COMPILATION ERROR
+console.log(betterEcho({name: "Jock", age: 31})); // {name: "Jock", age: 31}
+console.log(betterEcho({name: "Jock", age: 31}).length); // WILL RAISE A COMPILATION ERROR
+
+// adding <T> (can be any letter or word) tells TS this is a generic function and asking when using this function that we assign the type to the variable T. When we define the data we get to be of type T, we know this will be correct because this type is reached by evaluating data.
+```
+
+### Built-in Generics
+
+Array is a generic type by default.
+
+Example 1:
+```js
+const testResults: Array<number> = [1.94, 2.33];
+testResults.push(-4.65); // OK
+testResults.push("Word"); // ERROR
+```
+
+Example 2:
+```js
+function printAll<T>(args: T[]) {
+    args.forEach((element) => console.log(element));
+}
+
+printAll<string>(["Apple", "Banana"]);
+
+// or
+
+function printAll<T>(args: T) {
+    args.forEach((element) => console.log(element));
+}
+
+printAll<string[]>(["Apple", "Banana"]);
+```
+
+### Generic Types
+```js
+function betterEcho<T>(data: T) {
+    return data;
+}
+
+const echo2: <T>(data: T) => T = echo;
+```
+
+In the above declaration, we are creating a new constant and assigning a type to it (<T>(data: T) => T). We can identify this because everything after the colon but before the equals sign is a type assignment. This constant will be a generic function that will take one argument of type the user specifies and return something of the same type. We then assign the constant to the echo function which fits the type description.
