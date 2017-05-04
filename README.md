@@ -549,3 +549,8 @@ const oldPerson : AgedPerson = {
 
 console.log(oldPerson) // oldPerson will be successfully created because it has all the props and methods of AgedPerson (and NamedPerson because AgedPerson extended that interface) and the optional properties and flexible properties ([propName: string]: string;) do not NEED to be present.
 ```
+
+## Generics
+
+Generics are a powerful tool for writing dynamic and flexible code. They use the power of TS (and the fact it needs to know what type a certain property/variable has) whilst giving a lot of flexibility in writing certain functions.
+
